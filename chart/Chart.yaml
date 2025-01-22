@@ -1,0 +1,5 @@
+apiVersion: v2
+name: rag-assistant-bootstrap
+description: Production-ready RAG (Retrieval Augmented Generation) assistant template with LangChain, CrateDB, and observability support
+version: 0.1.0
+appVersion: "1.0.0"

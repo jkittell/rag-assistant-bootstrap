@@ -1,0 +1,19 @@
+version: v2beta1
+name: rag-assistant-bootstrap
+
+dev:
+  app:
+    container:
+      image: rag-assistant-bootstrap:dev
+      command: ["python", "app.py"]
+      sync:
+        - path: ./
+          excludePaths:
+            - .git/
+            - __pycache__/
+            - "*.pyc"
+      ports:
+        - port: "8000"
+      env:
+        - name: ENVIRONMENT
+          value: development

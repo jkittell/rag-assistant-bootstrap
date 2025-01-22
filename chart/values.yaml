@@ -1,0 +1,33 @@
+image:
+  repository: rag-assistant-bootstrap
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+env:
+  - name: ENVIRONMENT
+    value: production
+  - name: OLLAMA_URL
+    value: http://ollama.ai-stack:11434
+  - name: CRATEDB_URL
+    value: crate://cratedb.ai-stack:4200
+  - name: TEMPO_URL
+    value: http://tempo.observability:4317
+  - name: LOKI_URL
+    value: http://loki.observability:3100
+
+service:
+  type: ClusterIP
+  port: 8000
+
+monitoring:
+  enabled: true
